@@ -1,0 +1,108 @@
+{
+  "lesson_id": 5,
+  "exercises": [
+    {
+      "exercise_type": "fill_blank",
+      "question": "De _______ van de Mona Lisa is wereldberoemd en blijft een mysterie.",
+      "correct_answer": ["glimlach"],
+      "max_score": 1,
+      "grading_type": "auto"
+    },
+    {
+      "exercise_type": "true_false",
+      "question": "Vincent van Gogh schilderde de Mona Lisa.",
+      "correct_answer": ["Niet Waar"],
+      "max_score": 1,
+      "grading_type": "auto"
+    },
+    {
+      "exercise_type": "multiple_choice",
+      "question": "Waar hangt de Mona Lisa?",
+      "options": ["Het Rijksmuseum", "Het Louvre", "Het Prado"],
+      "correct_answer": ["Het Louvre"],
+      "max_score": 1,
+      "grading_type": "auto"
+    },
+    {
+      "exercise_type": "summary",
+      "question": "Schrijf een korte samenvatting van waarom de Mona Lisa zo beroemd is.",
+      "max_length": 150,
+      "max_score": 5,
+      "grading_type": "manual"
+    },
+    {
+      "exercise_type": "syn_ant",
+      "question": "Wat is een synoniem voor 'beroemd'?",
+      "correct_answer": ["bekend", "gevierd"],
+      "max_score": 1,
+      "grading_type": "auto"
+    },
+    {
+      "exercise_type": "sentence_order",
+      "question": "Zet de woorden in de juiste volgorde.",
+      "scrambled_text": "Sterrennacht schilderde Vincent van Gogh in 1889.",
+      "correct_order": [
+        "Vincent van Gogh",
+        "schilderde",
+        "Sterrennacht",
+        "in 1889"
+      ],
+      "max_score": 1,
+      "grading_type": "auto"
+    },
+    {
+      "exercise_type": "word_match",
+      "question": "Match de woorden met de juiste beschrijving.",
+      "word_bank": ["Van Gogh", "Mona Lisa", "Pointillisme"],
+      "correct_answer": [
+        "Schilder van Sterrennacht",
+        "Schilderij van Da Vinci",
+        "Techniek van Seurat"
+      ],
+      "max_score": 3,
+      "grading_type": "auto"
+    },
+    {
+      "exercise_type": "short_answer",
+      "question": "Wie schilderde Sterrennacht?",
+      "correct_answer": ["Vincent van Gogh"],
+      "max_score": 1,
+      "grading_type": "auto"
+    },
+    {
+      "exercise_type": "gap_text",
+      "question": "Vincent van Gogh was een _______ schilder, bekend om zijn _______ schilderijen.",
+      "word_bank": ["Nederlandse", "expressionistische", "abstracte", "realistische"],
+      "correct_answer": ["Nederlandse", "expressionistische"],
+      "max_score": 2,
+      "grading_type": "auto"
+    },
+    {
+      "exercise_type": "comprehension",
+      "question": "Waarom wordt Vincent van Gogh beschouwd als een invloedrijke schilder?",
+      "max_score": 5,
+      "grading_type": "manual"
+    },
+    {
+      "exercise_type": "main_idea",
+      "question": "Wat is het hoofdidee van deze paragraaf?",
+      "paragraph": "Vincent van Gogh ontwikkelde zijn unieke stijl in Frankrijk, waar hij experimenteerde met kleuren en penseelstreken.",
+      "max_score": 2,
+      "grading_type": "manual"
+    },
+    {
+      "exercise_type": "error_fix",
+      "question": "Corrigeer de fouten in de volgende zin.",
+      "sentence_with_errors": "Van Gogh schildere de sterrennacht in 1890.",
+      "corrected_sentence": "Van Gogh schilderde Sterrennacht in 1889.",
+      "max_score": 1,
+      "grading_type": "auto"
+    },
+    {
+      "exercise_type": "discussion",
+      "question": "Wat is volgens jou de reden waarom Vincent van Gogh nooit succes had tijdens zijn leven?",
+      "max_score": 5,
+      "grading_type": "manual"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+./backend/app/test_data.py
+./backend/app/test_db.py
+./backend/test_api.py
+./backend/test_db.py
+./backend/test_exercise_api.py
+./backend/test_exercises.py
+./backend/test_imports.py
+./backend/tests/test_auth.py
+./backend/tests/test_evaluation.py
+./backend/tests/test_exercises.py
+./database/test_database.py
+./test_database.py
+./test_db_layer.py
+./test_exercises.py
+./~/lms/test_database.py
+./~/lms/test_db_layer.py

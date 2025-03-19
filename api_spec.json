@@ -1,0 +1,2155 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "LMS API",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/api/": {
+            "get": {
+                "tags": [
+                    "Health Check"
+                ],
+                "summary": "Root",
+                "operationId": "root_api__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lessons/": {
+            "get": {
+                "tags": [
+                    "Lessons"
+                ],
+                "summary": "Get Lessons",
+                "description": "Get all lessons",
+                "operationId": "get_lessons_api_lessons__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/Lesson"
+                                    },
+                                    "type": "array",
+                                    "title": "Response Get Lessons Api Lessons  Get"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Lessons"
+                ],
+                "summary": "Create Lesson",
+                "description": "Create a new lesson",
+                "operationId": "create_lesson_api_lessons__post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LessonRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Lesson"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lessons/{lesson_id}": {
+            "get": {
+                "tags": [
+                    "Lessons"
+                ],
+                "summary": "Get Lesson",
+                "description": "Get a specific lesson by ID",
+                "operationId": "get_lesson_api_lessons__lesson_id__get",
+                "parameters": [
+                    {
+                        "name": "lesson_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Lesson Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Lesson"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/": {
+            "get": {
+                "tags": [
+                    "Exercises"
+                ],
+                "summary": "Get Exercises",
+                "description": "Get all exercises.\nIf lesson_id is provided, filters exercises by that lesson_id.",
+                "operationId": "get_exercises_api_exercises__get",
+                "parameters": [
+                    {
+                        "name": "lesson_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "integer"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "title": "Lesson Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Exercise"
+                                    },
+                                    "title": "Response Get Exercises Api Exercises  Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Exercises"
+                ],
+                "summary": "Create Exercise",
+                "description": "Create a new exercise",
+                "operationId": "create_exercise_api_exercises__post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExerciseRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Exercise"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/{exercise_id}": {
+            "get": {
+                "tags": [
+                    "Exercises"
+                ],
+                "summary": "Get Exercise",
+                "description": "Get a specific exercise by ID",
+                "operationId": "get_exercise_api_exercises__exercise_id__get",
+                "parameters": [
+                    {
+                        "name": "exercise_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Exercise Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Exercise"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/batch/": {
+            "post": {
+                "tags": [
+                    "Exercises"
+                ],
+                "summary": "Create Exercises Batch",
+                "description": "Create multiple exercises at once using a template",
+                "operationId": "create_exercises_batch_api_exercises_batch__post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExerciseTemplate-Input"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/Exercise"
+                                    },
+                                    "type": "array",
+                                    "title": "Response Create Exercises Batch Api Exercises Batch  Post"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get Users",
+                "description": "Placeholder for user management (to be implemented)",
+                "operationId": "get_users_api_users__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/templates/": {
+            "post": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Create Exercise Template",
+                "description": "Create a new exercise template",
+                "operationId": "create_exercise_template_api_exercises_templates__post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExerciseTemplateCreate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExerciseTemplate-Output"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Get Exercise Templates",
+                "description": "Get all exercise templates with optional filtering",
+                "operationId": "get_exercise_templates_api_exercises_templates__get",
+                "parameters": [
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "Skip"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 100,
+                            "title": "Limit"
+                        }
+                    },
+                    {
+                        "name": "exercise_type",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "description": "Filter by exercise type",
+                            "title": "Exercise Type"
+                        },
+                        "description": "Filter by exercise type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExerciseTemplate-Output"
+                                    },
+                                    "title": "Response Get Exercise Templates Api Exercises Templates  Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/templates/{template_id}": {
+            "get": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Get Exercise Template",
+                "description": "Get a specific exercise template by ID",
+                "operationId": "get_exercise_template_api_exercises_templates__template_id__get",
+                "parameters": [
+                    {
+                        "name": "template_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Template Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExerciseTemplate-Output"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Update Exercise Template",
+                "description": "Update an existing exercise template",
+                "operationId": "update_exercise_template_api_exercises_templates__template_id__put",
+                "parameters": [
+                    {
+                        "name": "template_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Template Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExerciseTemplateUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExerciseTemplate-Output"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Delete Exercise Template",
+                "description": "Delete an exercise template",
+                "operationId": "delete_exercise_template_api_exercises_templates__template_id__delete",
+                "parameters": [
+                    {
+                        "name": "template_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Template Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful Response"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/content/": {
+            "post": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Create Exercise Content",
+                "description": "Create new exercise content based on a template",
+                "operationId": "create_exercise_content_api_exercises_content__post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExerciseContentCreate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExerciseContent"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Get Exercise Contents",
+                "description": "Get all exercise contents with optional filtering",
+                "operationId": "get_exercise_contents_api_exercises_content__get",
+                "parameters": [
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "Skip"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 100,
+                            "title": "Limit"
+                        }
+                    },
+                    {
+                        "name": "template_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "integer"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "description": "Filter by template ID",
+                            "title": "Template Id"
+                        },
+                        "description": "Filter by template ID"
+                    },
+                    {
+                        "name": "difficulty",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "integer"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "description": "Filter by difficulty level",
+                            "title": "Difficulty"
+                        },
+                        "description": "Filter by difficulty level"
+                    },
+                    {
+                        "name": "subject",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "description": "Filter by subject area",
+                            "title": "Subject"
+                        },
+                        "description": "Filter by subject area"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExerciseContent"
+                                    },
+                                    "title": "Response Get Exercise Contents Api Exercises Content  Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/content/{content_id}": {
+            "get": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Get Exercise Content",
+                "description": "Get a specific exercise content by ID",
+                "operationId": "get_exercise_content_api_exercises_content__content_id__get",
+                "parameters": [
+                    {
+                        "name": "content_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Content Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExerciseContent"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Update Exercise Content",
+                "description": "Update an existing exercise content",
+                "operationId": "update_exercise_content_api_exercises_content__content_id__put",
+                "parameters": [
+                    {
+                        "name": "content_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Content Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExerciseContentUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExerciseContent"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Delete Exercise Content",
+                "description": "Delete an exercise content",
+                "operationId": "delete_exercise_content_api_exercises_content__content_id__delete",
+                "parameters": [
+                    {
+                        "name": "content_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "Content Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful Response"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/media/": {
+            "post": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Create Media Asset",
+                "description": "Create a new media asset for an exercise",
+                "operationId": "create_media_asset_api_exercises_media__post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MediaAssetCreate"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MediaAsset"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/submit/": {
+            "post": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Submit Exercise Response",
+                "description": "Submit a response to an exercise and get evaluation",
+                "operationId": "submit_exercise_response_api_exercises_submit__post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExerciseSubmission"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExerciseSubmissionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exercises/responses/user/{user_id}": {
+            "get": {
+                "tags": [
+                    "exercises"
+                ],
+                "summary": "Get User Exercise Responses",
+                "description": "Get exercise response history for a specific user",
+                "operationId": "get_user_exercise_responses_api_exercises_responses_user__user_id__get",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "title": "User Id"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "Skip"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 100,
+                            "title": "Limit"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UserResponse"
+                                    },
+                                    "title": "Response Get User Exercise Responses Api Exercises Responses User  User Id  Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/submit/": {
+            "post": {
+                "tags": [
+                    "Submissions"
+                ],
+                "summary": "Submit Answer",
+                "description": "Submit an answer to an exercise",
+                "operationId": "submit_answer_api_submit__post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SubmissionRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SubmissionResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CompletionStatusEnum": {
+                "type": "string",
+                "enum": [
+                    "started",
+                    "completed",
+                    "abandoned"
+                ],
+                "title": "CompletionStatusEnum"
+            },
+            "Exercise": {
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "description": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Description"
+                    },
+                    "exercise_type": {
+                        "type": "string",
+                        "title": "Exercise Type"
+                    },
+                    "content": {
+                        "type": "object",
+                        "title": "Content"
+                    },
+                    "correct_answer": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array",
+                        "title": "Correct Answer"
+                    },
+                    "max_score": {
+                        "type": "integer",
+                        "title": "Max Score",
+                        "default": 1
+                    },
+                    "grading_type": {
+                        "type": "string",
+                        "title": "Grading Type",
+                        "default": "auto"
+                    },
+                    "lesson_id": {
+                        "type": "integer",
+                        "title": "Lesson Id"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "correct_order": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Correct Order"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "exercise_type",
+                    "content",
+                    "correct_answer",
+                    "lesson_id",
+                    "id"
+                ],
+                "title": "Exercise"
+            },
+            "ExerciseContent": {
+                "properties": {
+                    "template_id": {
+                        "type": "integer",
+                        "title": "Template Id"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "instructions": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Instructions"
+                    },
+                    "question_text": {
+                        "type": "string",
+                        "title": "Question Text"
+                    },
+                    "correct_answers": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "object"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Correct Answers"
+                    },
+                    "alternate_answers": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "object"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Alternate Answers"
+                    },
+                    "difficulty_level": {
+                        "type": "integer",
+                        "maximum": 5.0,
+                        "minimum": 1.0,
+                        "title": "Difficulty Level",
+                        "default": 1
+                    },
+                    "tags": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Tags"
+                    },
+                    "subject_area": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Subject Area"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "template_id",
+                    "title",
+                    "question_text",
+                    "correct_answers",
+                    "id",
+                    "created_at"
+                ],
+                "title": "ExerciseContent",
+                "description": "Schema for retrieved exercise content"
+            },
+            "ExerciseContentCreate": {
+                "properties": {
+                    "template_id": {
+                        "type": "integer",
+                        "title": "Template Id"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "instructions": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Instructions"
+                    },
+                    "question_text": {
+                        "type": "string",
+                        "title": "Question Text"
+                    },
+                    "correct_answers": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "object"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Correct Answers"
+                    },
+                    "alternate_answers": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "object"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Alternate Answers"
+                    },
+                    "difficulty_level": {
+                        "type": "integer",
+                        "maximum": 5.0,
+                        "minimum": 1.0,
+                        "title": "Difficulty Level",
+                        "default": 1
+                    },
+                    "tags": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Tags"
+                    },
+                    "subject_area": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Subject Area"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "template_id",
+                    "title",
+                    "question_text",
+                    "correct_answers"
+                ],
+                "title": "ExerciseContentCreate",
+                "description": "Schema for creating exercise content"
+            },
+            "ExerciseContentUpdate": {
+                "properties": {
+                    "title": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Title"
+                    },
+                    "instructions": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Instructions"
+                    },
+                    "question_text": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Question Text"
+                    },
+                    "correct_answers": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "object"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Correct Answers"
+                    },
+                    "alternate_answers": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "object"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Alternate Answers"
+                    },
+                    "difficulty_level": {
+                        "anyOf": [
+                            {
+                                "type": "integer",
+                                "maximum": 5.0,
+                                "minimum": 1.0
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Difficulty Level"
+                    },
+                    "tags": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Tags"
+                    },
+                    "subject_area": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Subject Area"
+                    }
+                },
+                "type": "object",
+                "title": "ExerciseContentUpdate",
+                "description": "Schema for updating exercise content"
+            },
+            "ExerciseRequest": {
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "description": {
+                        "type": "string",
+                        "title": "Description"
+                    },
+                    "content": {
+                        "type": "object",
+                        "title": "Content"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "description",
+                    "content"
+                ],
+                "title": "ExerciseRequest"
+            },
+            "ExerciseSubmission": {
+                "properties": {
+                    "user_id": {
+                        "type": "integer",
+                        "title": "User Id"
+                    },
+                    "exercise_content_id": {
+                        "type": "integer",
+                        "title": "Exercise Content Id"
+                    },
+                    "response_data": {
+                        "type": "object",
+                        "title": "Response Data"
+                    },
+                    "completion_status": {
+                        "$ref": "#/components/schemas/CompletionStatusEnum",
+                        "default": "completed"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "user_id",
+                    "exercise_content_id",
+                    "response_data"
+                ],
+                "title": "ExerciseSubmission",
+                "description": "Schema for submitting an exercise response"
+            },
+            "ExerciseSubmissionResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "score": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Score"
+                    },
+                    "is_correct": {
+                        "type": "boolean",
+                        "title": "Is Correct"
+                    },
+                    "feedback": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Feedback"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message",
+                    "is_correct"
+                ],
+                "title": "ExerciseSubmissionResponse",
+                "description": "Schema for exercise submission response"
+            },
+            "ExerciseTemplate-Input": {
+                "properties": {
+                    "lesson_id": {
+                        "type": "integer",
+                        "title": "Lesson Id"
+                    },
+                    "exercises": {
+                        "items": {
+                            "$ref": "#/components/schemas/ExerciseRequest"
+                        },
+                        "type": "array",
+                        "title": "Exercises"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "lesson_id",
+                    "exercises"
+                ],
+                "title": "ExerciseTemplate"
+            },
+            "ExerciseTemplate-Output": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/ExerciseTypeEnum"
+                    },
+                    "validation_rules": {
+                        "anyOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Validation Rules"
+                    },
+                    "scoring_mechanism": {
+                        "anyOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Scoring Mechanism"
+                    },
+                    "display_parameters": {
+                        "anyOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Display Parameters"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "type",
+                    "id",
+                    "created_at"
+                ],
+                "title": "ExerciseTemplate",
+                "description": "Schema for retrieved exercise template"
+            },
+            "ExerciseTemplateCreate": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/ExerciseTypeEnum"
+                    },
+                    "validation_rules": {
+                        "anyOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Validation Rules"
+                    },
+                    "scoring_mechanism": {
+                        "anyOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Scoring Mechanism"
+                    },
+                    "display_parameters": {
+                        "anyOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Display Parameters"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "title": "ExerciseTemplateCreate",
+                "description": "Schema for creating an exercise template"
+            },
+            "ExerciseTemplateUpdate": {
+                "properties": {
+                    "name": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Name"
+                    },
+                    "validation_rules": {
+                        "anyOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Validation Rules"
+                    },
+                    "scoring_mechanism": {
+                        "anyOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Scoring Mechanism"
+                    },
+                    "display_parameters": {
+                        "anyOf": [
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Display Parameters"
+                    }
+                },
+                "type": "object",
+                "title": "ExerciseTemplateUpdate",
+                "description": "Schema for updating an exercise template"
+            },
+            "ExerciseTypeEnum": {
+                "type": "string",
+                "enum": [
+                    "word_scramble",
+                    "multiple_choice",
+                    "fill_blank",
+                    "true_false",
+                    "long_answer",
+                    "syn_ant",
+                    "sentence_reordering",
+                    "matching_words",
+                    "short_answer",
+                    "cloze_test",
+                    "comprehension",
+                    "image_labeling"
+                ],
+                "title": "ExerciseTypeEnum"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "Lesson": {
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "description": {
+                        "type": "string",
+                        "title": "Description"
+                    },
+                    "content": {
+                        "type": "string",
+                        "title": "Content"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "description",
+                    "content",
+                    "id"
+                ],
+                "title": "Lesson"
+            },
+            "LessonRequest": {
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "description": {
+                        "type": "string",
+                        "title": "Description"
+                    },
+                    "content": {
+                        "type": "string",
+                        "title": "Content"
+                    },
+                    "order": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Order"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "description",
+                    "content"
+                ],
+                "title": "LessonRequest"
+            },
+            "MediaAsset": {
+                "properties": {
+                    "exercise_content_id": {
+                        "type": "integer",
+                        "title": "Exercise Content Id"
+                    },
+                    "file_path": {
+                        "type": "string",
+                        "title": "File Path"
+                    },
+                    "asset_type": {
+                        "type": "string",
+                        "title": "Asset Type"
+                    },
+                    "alt_text": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Alt Text"
+                    },
+                    "caption": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Caption"
+                    },
+                    "license_info": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "License Info"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "exercise_content_id",
+                    "file_path",
+                    "asset_type",
+                    "id",
+                    "created_at"
+                ],
+                "title": "MediaAsset",
+                "description": "Schema for retrieved media asset"
+            },
+            "MediaAssetCreate": {
+                "properties": {
+                    "exercise_content_id": {
+                        "type": "integer",
+                        "title": "Exercise Content Id"
+                    },
+                    "file_path": {
+                        "type": "string",
+                        "title": "File Path"
+                    },
+                    "asset_type": {
+                        "type": "string",
+                        "title": "Asset Type"
+                    },
+                    "alt_text": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Alt Text"
+                    },
+                    "caption": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Caption"
+                    },
+                    "license_info": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "License Info"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "exercise_content_id",
+                    "file_path",
+                    "asset_type"
+                ],
+                "title": "MediaAssetCreate",
+                "description": "Schema for creating a media asset"
+            },
+            "SubmissionRequest": {
+                "properties": {
+                    "exercise_id": {
+                        "type": "integer",
+                        "title": "Exercise Id"
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "title": "User Id"
+                    },
+                    "answer": {
+                        "type": "string",
+                        "title": "Answer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "exercise_id",
+                    "user_id",
+                    "answer"
+                ],
+                "title": "SubmissionRequest"
+            },
+            "SubmissionResponse": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "score": {
+                        "type": "number",
+                        "title": "Score"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "message",
+                    "score"
+                ],
+                "title": "SubmissionResponse"
+            },
+            "UserResponse": {
+                "properties": {
+                    "user_id": {
+                        "type": "integer",
+                        "title": "User Id"
+                    },
+                    "exercise_content_id": {
+                        "type": "integer",
+                        "title": "Exercise Content Id"
+                    },
+                    "response_data": {
+                        "type": "object",
+                        "title": "Response Data"
+                    },
+                    "score": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Score"
+                    },
+                    "completion_status": {
+                        "$ref": "#/components/schemas/CompletionStatusEnum",
+                        "default": "started"
+                    },
+                    "attempt_number": {
+                        "type": "integer",
+                        "title": "Attempt Number",
+                        "default": 1
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "started_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Started At"
+                    },
+                    "completed_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Completed At"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "user_id",
+                    "exercise_content_id",
+                    "response_data",
+                    "id",
+                    "started_at"
+                ],
+                "title": "UserResponse",
+                "description": "Schema for retrieved user response"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+d877fcfee79b -> 4a1c5e9b8e7d (head), Add user authentication tables
+exercise_generation_02 -> exercise_generation_03 (head), Add exercise generation tables
+09930279e14c -> exercise_generation_02, Exercise generation system tables
+d877fcfee79b -> 09930279e14c, Fix exercises schema
+<base> -> d877fcfee79b (branchpoint), Fix exercises schema

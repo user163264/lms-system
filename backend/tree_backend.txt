@@ -1,0 +1,36 @@
+.
+├── README.md
+├── __pycache__
+│   └── main.cpython-312.pyc
+├── app
+│   ├── __pycache__
+│   │   ├── crud.cpython-312.pyc
+│   │   ├── database.cpython-312.pyc
+│   │   ├── main.cpython-312.pyc
+│   │   ├── models.cpython-312.pyc
+│   │   └── schemas.cpython-312.pyc
+│   ├── crud.py
+│   ├── database.py
+│   ├── main.py
+│   ├── models.py
+│   ├── routes
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-312.pyc
+│   │   │   ├── exercises.cpython-312.pyc
+│   │   │   ├── lessons.cpython-312.pyc
+│   │   │   └── users.cpython-312.pyc
+│   │   ├── exercises.py
+│   │   ├── lessons.py
+│   │   └── users.py
+│   ├── schemas.py
+│   ├── simple_test_db.py
+│   └── test_db.py
+├── lms-backend.service
+├── requirements.txt
+├── simple_test_db.py
+├── test_db.py
+├── tree_backend.tct
+└── tree_backend.txt
+
+6 directories, 28 files

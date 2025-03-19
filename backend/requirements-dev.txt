@@ -1,0 +1,13 @@
+# Development tools
+black==23.3.0
+flake8==6.0.0
+isort==5.12.0
+mypy==1.3.0
+pre-commit==3.3.2
+
+# Documentation
+mkdocs==1.4.3
+mkdocs-material==9.1.11
+
+# Testing dependencies (includes production dependencies)
+-r requirements-test.txt 

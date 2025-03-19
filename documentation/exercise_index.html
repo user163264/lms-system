@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Exercise Types Index</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .intro {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+        }
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .exercise-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            padding: 15px 20px;
+            background-color: #3498db;
+            color: white;
+        }
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .card-header .type-id {
+            font-family: monospace;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-body p {
+            margin-top: 0;
+        }
+        .features {
+            margin-top: 15px;
+        }
+        .features h4 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        .features ul {
+            margin-top: 0;
+            padding-left: 20px;
+        }
+        .example {
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 3px solid #3498db;
+            font-size: 0.9em;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e0f7fa;
+            color: #00838f;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            border-top: 1px solid #ecf0f1;
+        }
+        .links {
+            margin-top: 15px;
+        }
+        .links a {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+        .links a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LMS Exercise Types</h1>
+        <p>A comprehensive showcase of all exercise types available in our Learning Management System</p>
+    </header>
+
+    <section class="intro">
+        <h2>Overview</h2>
+        <p>The LMS currently supports <strong>10 different exercise types</strong>, each designed for specific learning scenarios and objectives. This index provides an overview of all available exercise types, their features, and use cases.</p>
+        <p>All exercise types can be seen in action on our Exercise Showcase pages:</p>
+        <div class="links">
+            <a href="http://13.42.249.90:3001/exercise-showcase" target="_blank">Complete Exercise Showcase</a>
+            <a href="http://13.42.249.90:3001/direct-showcase" target="_blank">Simplified Showcase</a>
+        </div>
+    </section>
+
+    <div class="exercise-grid">
+        <!-- Word Scramble -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>Word Scramble</h2>
+                <span class="type-id">Type ID: word_scramble</span>
+            </div>
+            <div class="card-body">
+                <p>Students rearrange words to form a complete, meaningful sentence.</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Drag-and-drop interface</li>
+                        <li>Automatic scoring</li>
+                        <li>Visual feedback for correct ordering</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> Arrange the words: "quick brown the fox jumps"
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Grammar</span>
+                    <span class="tag">Sentence Structure</span>
+                    <span class="tag">Language Syntax</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multiple Choice -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>Multiple Choice</h2>
+                <span class="type-id">Type ID: multiple_choice</span>
+            </div>
+            <div class="card-body">
+                <p>Students select one correct option from several choices.</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Single-selection radio buttons</li>
+                        <li>Automatic grading</li>
+                        <li>Support for image options</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> What is the capital of France?<br>
+                    A) London B) Berlin C) Paris D) Madrid
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Factual Knowledge</span>
+                    <span class="tag">Concepts</span>
+                    <span class="tag">Comprehension</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Short Answer -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>Short Answer</h2>
+                <span class="type-id">Type ID: short_answer</span>
+            </div>
+            <div class="card-body">
+                <p>Students provide a concise answer (typically a few words or a sentence).</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Text input field</li>
+                        <li>Word count limit option</li>
+                        <li>Automatic or manual grading</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> Define photosynthesis in one sentence.
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Definitions</span>
+                    <span class="tag">Recall</span>
+                    <span class="tag">Brief Explanations</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Long Answer -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>Long Answer</h2>
+                <span class="type-id">Type ID: long_answer</span>
+            </div>
+            <div class="card-body">
+                <p>Students write extended responses, essays, or paragraphs.</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Rich text editor</li>
+                        <li>Word count min/max limits</li>
+                        <li>Manual grading with rubric</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> Explain the causes and effects of climate change (min 200 words).
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Critical Thinking</span>
+                    <span class="tag">Analytical Skills</span>
+                    <span class="tag">Detailed Explanations</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- True/False -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>True/False</h2>
+                <span class="type-id">Type ID: true_false</span>
+            </div>
+            <div class="card-body">
+                <p>Students determine whether a statement is true or false.</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Simple binary choice</li>
+                        <li>Automatic grading</li>
+                        <li>Optional explanation field</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> The sun revolves around the Earth. (True/False)
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Factual Knowledge</span>
+                    <span class="tag">Quick Assessment</span>
+                    <span class="tag">Understanding</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fill in the Blanks -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>Fill in the Blanks</h2>
+                <span class="type-id">Type ID: fill_blank</span>
+            </div>
+            <div class="card-body">
+                <p>Students complete sentences by filling in missing words.</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Text input fields inline with content</li>
+                        <li>Multiple blanks in a single exercise</li>
+                        <li>Automatic grading with exact or fuzzy matching</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> The process of plants making food using sunlight is called ________.
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Vocabulary</span>
+                    <span class="tag">Grammar</span>
+                    <span class="tag">Knowledge Points</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Matching Words -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>Matching Words</h2>
+                <span class="type-id">Type ID: matching_words</span>
+            </div>
+            <div class="card-body">
+                <p>Students match items from two columns (e.g., terms with definitions).</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Drag-and-drop or dropdown selection</li>
+                        <li>One-to-one correspondence</li>
+                        <li>Automatic grading</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> Match the countries with their capitals.
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Relationships</span>
+                    <span class="tag">Terms & Definitions</span>
+                    <span class="tag">Cause & Effect</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Labeling -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>Image Labeling</h2>
+                <span class="type-id">Type ID: image_labeling</span>
+            </div>
+            <div class="card-body">
+                <p>Students label specific parts of an image.</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Interactive image with clickable points</li>
+                        <li>Drag labels to locations or dropdown selection</li>
+                        <li>Automatic grading based on label placement</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> Label the parts of the human heart in this diagram.
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Anatomy</span>
+                    <span class="tag">Geography</span>
+                    <span class="tag">Visual Comprehension</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sentence Reordering -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>Sentence Reordering</h2>
+                <span class="type-id">Type ID: sentence_reordering</span>
+            </div>
+            <div class="card-body">
+                <p>Students arrange sentences in the correct logical order.</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Drag-and-drop interface for reordering</li>
+                        <li>Automatic sequence checking</li>
+                        <li>Support for paragraph reconstruction</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> Arrange these sentences to form a coherent paragraph about the water cycle.
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Narrative Comprehension</span>
+                    <span class="tag">Logical Sequencing</span>
+                    <span class="tag">Procedural Understanding</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cloze Test -->
+        <div class="exercise-card">
+            <div class="card-header">
+                <h2>Cloze Test with Word Bank</h2>
+                <span class="type-id">Type ID: cloze_test</span>
+            </div>
+            <div class="card-body">
+                <p>Students fill in blanks in a text using words from a provided word bank.</p>
+                <div class="features">
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Word bank with drag-and-drop functionality</li>
+                        <li>Multiple blanks in a passage</li>
+                        <li>Automatic grading</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> Complete the passage using words from the word bank: climate, atmosphere, temperature, greenhouse.
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">Vocabulary in Context</span>
+                    <span class="tag">Reading Comprehension</span>
+                    <span class="tag">Grammar</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="intro">
+        <h2>Technical Implementation</h2>
+        <p>All exercise types are implemented as React components in the <code>frontend/app/components/exercises</code> directory. The central dispatcher for all exercise types is the <code>ExerciseRenderer</code> component, which renders the appropriate exercise component based on the <code>exercise_type</code> property.</p>
+        <p>In the backend, each exercise type has a corresponding schema definition in <code>backend/app/schemas.py</code>, and the database uses a flexible JSON-based approach to store exercise-specific data.</p>
+    </section>
+
+    <footer>
+        <p>LMS Exercise Types Index &copy; 2024 | Learning Management System Documentation</p>
+        <div class="links">
+            <a href="/documentation/exercise_types.md">Exercise Types Documentation</a>
+            <a href="/documentation/exercise_grading_status.md">Grading Status</a>
+            <a href="/documentation/backend_frontend_alignment.md">Backend-Frontend Alignment</a>
+        </div>
+    </footer>
+</body>
+</html> 

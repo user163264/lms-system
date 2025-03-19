@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Kunst Oefeningen Webform</title>
+
+  <style>
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      margin: 20px;
+
+    }
+
+    h1, h2 {
+
+      color: #333;
+
+    }
+
+    .section {
+
+      border: 1px solid #ccc;
+
+      padding: 15px;
+
+      margin-bottom: 30px;
+
+      border-radius: 5px;
+
+      background-color: #f9f9f9;
+
+    }
+
+    label {
+
+      display: block;
+
+      margin-bottom: 10px;
+
+    }
+
+    input[type="text"], select, textarea {
+
+      width: 100%;
+
+      padding: 8px;
+
+      margin-top: 5px;
+
+      box-sizing: border-box;
+
+    }
+
+    textarea {
+
+      resize: vertical;
+
+    }
+
+    .instructions {
+
+      font-style: italic;
+
+      color: #555;
+
+      margin-bottom: 15px;
+
+    }
+
+    input[type="submit"] {
+
+      padding: 10px 20px;
+
+      font-size: 16px;
+
+      cursor: pointer;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Kunst Oefeningen</h1>
+
+  <form id="kunstForm" action="#" method="post">
+
+    
+
+    <!-- Invulopdracht -->
+
+    <div class="section" id="invulopdracht">
+
+      <h2>Invulopdracht</h2>
+
+      <p class="instructions">Vul de lege plekken in met de juiste woorden uit de tekst.</p>
+
+      
+
+      <label>
+
+        1. De glimlach van de _______ is wereldberoemd en blijft een mysterie.
+
+        <input type="text" name="invul1" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        2. Vincent van Gogh schilderde Sterrennacht terwijl hij in een _______ verbleef.
+
+        <input type="text" name="invul2" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        3. De Volharding der Herinnering is beroemd om de _______ klokken.
+
+        <input type="text" name="invul3" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        4. De Schepping van Adam werd geschilderd op het plafond van de _______ Kapel.
+
+        <input type="text" name="invul4" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        5. Meisje met de Parel wordt ook wel de _______ van het Noorden genoemd.
+
+        <input type="text" name="invul5" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        6. Het schilderij American Gothic toont een boer met een _______ in zijn hand.
+
+        <input type="text" name="invul6" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        7. De Schreeuw is een symbool voor _______ en emoties.
+
+        <input type="text" name="invul7" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        8. De Kus van Gustav Klimt staat bekend om zijn gebruik van _______ kleuren.
+
+        <input type="text" name="invul8" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        9. Het schilderij Guernica is een krachtig symbool tegen _______.
+
+        <input type="text" name="invul9" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        10. Georges Seurat ontwikkelde een schildertechniek die bekend staat als _______.
+
+        <input type="text" name="invul10" placeholder="Jouw antwoord">
+
+      </label>
+
+    </div>
+
+    
+
+    <!-- Waar of Niet Waar -->
+
+    <div class="section" id="waar-niet-waar">
+
+      <h2>Waar of Niet Waar</h2>
+
+      <p class="instructions">Beantwoord met <strong>waar</strong> of <strong>niet waar</strong>.</p>
+
+      
+
+      <label>
+
+        1. Mona Lisa werd geschilderd door Vincent van Gogh.
+
+        <select name="wn1">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        2. Sterrennacht toont een sterrenhemel boven een dorp.
+
+        <select name="wn2">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        3. Salvador Dalí maakte films en ontwerpen naast zijn schilderkunst.
+
+        <select name="wn3">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        4. De Schepping van Adam werd geschilderd door Claude Monet.
+
+        <select name="wn4">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        5. Meisje met de Parel is geschilderd in de 20e eeuw.
+
+        <select name="wn5">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        6. American Gothic wordt vaak gebruikt in memes.
+
+        <select name="wn6">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        7. De Schreeuw werd geschilderd door Pablo Picasso.
+
+        <select name="wn7">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        8. De Kus toont een paar dat elkaar omhelst.
+
+        <select name="wn8">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        9. Pablo Picasso schilderde het beroemde Guernica.
+
+        <select name="wn9">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        10. Waterlelies is een beroemd werk van Johannes Vermeer.
+
+        <select name="wn10">
+
+          <option value="">Selecteer</option>
+
+          <option value="waar">Waar</option>
+
+          <option value="niet waar">Niet waar</option>
+
+        </select>
+
+      </label>
+
+    </div>
+
+    
+
+    <!-- Gatentekst met Woordenlijst -->
+
+    <div class="section" id="gatentekst">
+
+      <h2>Gatentekst met Woordenlijst</h2>
+
+      <p class="instructions">
+
+        Gebruik de volgende woordenlijst: <br>
+
+        <strong>surrealistisch, Louvre, Renaissance, pointillisme, beroemd, oorlog, romantisch, Vincent, meesterwerken, Parijs</strong>.
+
+      </p>
+
+      
+
+      <label>
+
+        1. Mona Lisa hangt in het _______ in _______.
+
+        <input type="text" name="gat1" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        2. De Volharding der Herinnering van Salvador Dalí is een _______ schilderij.
+
+        <input type="text" name="gat2" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        3. Guernica van Picasso laat de gruwel van _______ zien.
+
+        <input type="text" name="gat3" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        4. De Geboorte van Venus is een schilderij uit de _______.
+
+        <input type="text" name="gat4" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        5. De Kus wordt vaak omschreven als een _______ schilderij.
+
+        <input type="text" name="gat5" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        6. Claude Monet schilderde vele _______ met waterlelies.
+
+        <input type="text" name="gat6" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        7. De Schreeuw is een _______ schilderij dat angst uitbeeldt.
+
+        <input type="text" name="gat7" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        8. Vincent van Gogh wordt nu als een _______ kunstenaar beschouwd.
+
+        <input type="text" name="gat8" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        9. Georges Seurat was de grondlegger van het _______.
+
+        <input type="text" name="gat9" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        10. Het Laatste Avondmaal en Mona Lisa werden geschilderd door _______ da Vinci.
+
+        <input type="text" name="gat10" placeholder="Jouw antwoord">
+
+      </label>
+
+    </div>
+
+    
+
+    <!-- Begripsvragen -->
+
+    <div class="section" id="begripsvragen">
+
+      <h2>Begripsvragen</h2>
+
+      <p class="instructions">Beantwoord de vragen in volledige zinnen.</p>
+
+      
+
+      <label>
+
+        1. Waarom is de glimlach van de Mona Lisa zo bijzonder?
+
+        <textarea name="begrip1" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+      
+
+      <label>
+
+        2. Waar verbleef Vincent van Gogh toen hij Sterrennacht schilderde?
+
+        <textarea name="begrip2" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+      
+
+      <label>
+
+        3. Wat symboliseren de smeltende klokken in De Volharding der Herinnering?
+
+        <textarea name="begrip3" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+      
+
+      <label>
+
+        4. Hoe werd De Schepping van Adam geschilderd door Michelangelo?
+
+        <textarea name="begrip4" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+      
+
+      <label>
+
+        5. Waarom wordt Meisje met de Parel de “Mona Lisa van het Noorden” genoemd?
+
+        <textarea name="begrip5" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+      
+
+      <label>
+
+        6. Wat stelt het schilderij American Gothic voor?
+
+        <textarea name="begrip6" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+      
+
+      <label>
+
+        7. Wat maakt De Schreeuw zo’n iconisch kunstwerk?
+
+        <textarea name="begrip7" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+      
+
+      <label>
+
+        8. Waarom wordt De Kus als een romantisch schilderij beschouwd?
+
+        <textarea name="begrip8" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+      
+
+      <label>
+
+        9. Wat is het thema van Guernica?
+
+        <textarea name="begrip9" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+      
+
+      <label>
+
+        10. Hoe ontwikkelde Georges Seurat de techniek van pointillisme?
+
+        <textarea name="begrip10" rows="3" placeholder="Schrijf hier je antwoord"></textarea>
+
+      </label>
+
+    </div>
+
+    
+
+    <!-- Korte Antwoorden -->
+
+    <div class="section" id="korte-antwoorden">
+
+      <h2>Korte Antwoorden</h2>
+
+      <p class="instructions">Beantwoord de vragen in één of twee woorden.</p>
+
+      
+
+      <label>
+
+        1. Wie schilderde de Mona Lisa?
+
+        <input type="text" name="kort1" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        2. Welk schilderij toont een draaiende sterrenhemel?
+
+        <input type="text" name="kort2" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        3. Wat smelt in De Volharding der Herinnering?
+
+        <input type="text" name="kort3" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        4. Waar bevindt zich De Schepping van Adam?
+
+        <input type="text" name="kort4" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        5. Welk meisje draagt een parel?
+
+        <input type="text" name="kort5" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        6. Wat houdt de boer in American Gothic vast?
+
+        <input type="text" name="kort6" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        7. Wat drukt De Schreeuw uit?
+
+        <input type="text" name="kort7" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        8. Welke kleur domineert De Kus?
+
+        <input type="text" name="kort8" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        9. Welk kunstwerk is een protest tegen oorlog?
+
+        <input type="text" name="kort9" placeholder="Jouw antwoord">
+
+      </label>
+
+      
+
+      <label>
+
+        10. Welke schilder ontwikkelde het pointillisme?
+
+        <input type="text" name="kort10" placeholder="Jouw antwoord">
+
+      </label>
+
+    </div>
+
+    
+
+    <!-- Meerkeuzevragen -->
+
+    <div class="section" id="meerkeuze">
+
+      <h2>Meerkeuzevragen</h2>
+
+      <p class="instructions">Kies het juiste antwoord.</p>
+
+      
+
+      <label>
+
+        1. Welk museum herbergt de Mona Lisa?
+
+        <select name="mc1">
+
+          <option value="">Selecteer</option>
+
+          <option value="Prado">a) Prado</option>
+
+          <option value="Louvre">b) Louvre</option>
+
+          <option value="Rijksmuseum">c) Rijksmuseum</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        2. Van welk schilderij is Sterrennacht een bekend voorbeeld?
+
+        <select name="mc2">
+
+          <option value="">Selecteer</option>
+
+          <option value="Kubisme">a) Kubisme</option>
+
+          <option value="Impressionisme">b) Impressionisme</option>
+
+          <option value="Expressionisme">c) Expressionisme</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        3. Welke kunstenaar schilderde De Volharding der Herinnering?
+
+        <select name="mc3">
+
+          <option value="">Selecteer</option>
+
+          <option value="Salvador Dalí">a) Salvador Dalí</option>
+
+          <option value="Pablo Picasso">b) Pablo Picasso</option>
+
+          <option value="Vincent van Gogh">c) Vincent van Gogh</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        4. In welke stad bevindt zich de Sixtijnse Kapel?
+
+        <select name="mc4">
+
+          <option value="">Selecteer</option>
+
+          <option value="Parijs">a) Parijs</option>
+
+          <option value="Rome">b) Rome</option>
+
+          <option value="Londen">c) Londen</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        5. Wie was de schilder van Meisje met de Parel?
+
+        <select name="mc5">
+
+          <option value="">Selecteer</option>
+
+          <option value="Johannes Vermeer">a) Johannes Vermeer</option>
+
+          <option value="Rembrandt van Rijn">b) Rembrandt van Rijn</option>
+
+          <option value="Frans Hals">c) Frans Hals</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        6. Wat stelt American Gothic voor?
+
+        <select name="mc6">
+
+          <option value="">Selecteer</option>
+
+          <option value="Een koninklijk portret">a) Een koninklijk portret</option>
+
+          <option value="Een boer met zijn dochter">b) Een boer met zijn dochter</option>
+
+          <option value="Een stadstaferelen">c) Een stadstaferelen</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        7. Wat is het belangrijkste thema van De Schreeuw?
+
+        <select name="mc7">
+
+          <option value="">Selecteer</option>
+
+          <option value="Vreugde">a) Vreugde</option>
+
+          <option value="Angst">b) Angst</option>
+
+          <option value="Liefde">c) Liefde</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        8. Welke kunstenaar was bekend om zijn gouden schilderijen?
+
+        <select name="mc8">
+
+          <option value="">Selecteer</option>
+
+          <option value="Gustav Klimt">a) Gustav Klimt</option>
+
+          <option value="Edgar Degas">b) Edgar Degas</option>
+
+          <option value="Claude Monet">c) Claude Monet</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        9. Wat maakt Guernica zo uniek?
+
+        <select name="mc9">
+
+          <option value="">Selecteer</option>
+
+          <option value="Het is een portret van een koning">a) Het is een portret van een koning</option>
+
+          <option value="Het is een abstract schilderij">b) Het is een abstract schilderij</option>
+
+          <option value="Het is een anti-oorlog schilderij">c) Het is een anti-oorlog schilderij</option>
+
+        </select>
+
+      </label>
+
+      
+
+      <label>
+
+        10. Welke techniek gebruikte Georges Seurat?
+
+        <select name="mc10">
+
+          <option value="">Selecteer</option>
+
+          <option value="Fresco">a) Fresco</option>
+
+          <option value="Pointillisme">b) Pointillisme</option>
+
+          <option value="Realisme">c) Realisme</option>
+
+        </select>
+
+      </label>
+
+    </div>
+
+    
+
+    <input type="submit" value="Verzenden">
+
+  </form>
+
+</body>
+
+</html>

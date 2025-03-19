@@ -1,0 +1,46 @@
+
+==================== LMS Service Health Check ====================
+Running health check at 2025-03-18 14:58:19.108981
+
+
+📊 Checking Database Connection...
+✅ Database connected successfully
+   Version: PostgreSQL 16.8 (Ubuntu 16.8-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu
+✅ Found 19 tables in database
+✅ All essential tables are present
+
+Table row counts:
+   - students: 0 rows
+   - exercises: 3 rows
+   - tests: 0 rows
+   - submissions: 0 rows
+   - test_questions: 0 rows
+   - submission_answers: 0 rows
+
+🔄 Checking Backend Services...
+✅ PostgreSQL Database port 5432 is open
+❌ Process 'uvicorn app.main:app' is not running
+✅ Backend API port 8000 is open
+
+🖥️ Checking Frontend Services...
+✅ Frontend Server port 3000 is open
+✅ Process 'nginx' is running (3 instances)
+
+💻 Checking System Resources...
+Disk usage: 32%
+✅ Disk space OK: 32% used
+Memory usage: 78.08%
+✅ Memory usage OK: 78.08%
+CPU usage: 25.9%
+✅ CPU usage OK: 25.9%
+
+==================================================
+Service Health Summary:
+✅ ONLINE - Database
+✅ ONLINE - Backend Services
+✅ ONLINE - Frontend Services
+✅ ONLINE - System Resources
+
+4/4 services are online.
+
+🎉 All services are running properly!
