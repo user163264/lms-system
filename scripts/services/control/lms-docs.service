@@ -1,0 +1,16 @@
+[Unit]
+Description=LMS Documentation Server
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/lms/documentation
+ExecStart=/home/ubuntu/lms/scripts/services/control/start_docs_server.sh
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target 
