@@ -1,0 +1,16 @@
+[Unit]
+Description=LMS Documentation Python Server
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/lms/documentation
+ExecStart=/usr/bin/python3 -m http.server 8000
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target 
