@@ -25,6 +25,51 @@ systemctl stop simple-docs-server.service || true
 pkill -f "python3 -m http.server" || true
 sleep 2
 
+# Setup the directory structure for /docs/ URL prefix
+echo "Setting up directory structure for /docs/ URL prefix..."
+TEMP_DIR="/home/ubuntu/lms-docs-public"
+mkdir -p $TEMP_DIR/docs
+
+# Copy the documentation (instead of symlink to ensure permissions)
+echo "Copying documentation to public directory..."
+cp -r "$LMS_ROOT/documentation/"* $TEMP_DIR/docs/
+
+# Create redirect index.html
+echo "Creating redirect index page..."
+cat > $TEMP_DIR/index.html << EOF
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="0; url=/docs/auth/login.html">
+    <title>LMS Documentation</title>
+</head>
+<body>
+    <p>Redirecting to <a href="/docs/auth/login.html">documentation</a>...</p>
+</body>
+</html>
+EOF
+
+# Update the service file
+echo "Updating service file..."
+cat > "$SCRIPT_DIR/simple-docs-server.service" << EOF
+[Unit]
+Description=LMS Documentation Python Server
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=$TEMP_DIR
+ExecStart=/usr/bin/python3 -m http.server 8000
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
 # Copy the service file to systemd directory
 echo "Copying service file to /etc/systemd/system/"
 cp "$SCRIPT_DIR/simple-docs-server.service" /etc/systemd/system/
@@ -57,4 +102,5 @@ echo "  - sudo systemctl status simple-docs-server.service   # Check service sta
 echo ""
 echo "The documentation is available at:"
 PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
-echo "  http://$PUBLIC_IP:8000/" 
+echo "  http://$PUBLIC_IP:8000/"
+echo "  http://$PUBLIC_IP:8000/docs/auth/login.html" 
