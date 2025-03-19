@@ -73,11 +73,33 @@
             font-weight: bold;
             color: #2c3e50;
         }
+        .user-controls {
+            display: flex;
+            align-items: center;
+        }
+        .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
     </style>
+    <!-- Include authentication check -->
+    <script src="auth/auth-check.js"></script>
 </head>
 <body>
     <header>
         <div class="logo">LMS System Documentation</div>
+        <div class="user-controls">
+            <span id="username">User: admin</span>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
     </header>
 
     <input type="text" id="searchDocs" class="search" placeholder="Search documentation...">
@@ -217,6 +239,14 @@
                 }
             });
         });
+        
+        function logout() {
+            // Clear authentication
+            sessionStorage.removeItem('lmsDocsAuth');
+            
+            // Redirect to login page
+            window.location.href = 'auth/login.html';
+        }
     </script>
 </body>
 </html> 

@@ -95,17 +95,38 @@
             border-left: 4px solid #e74c3c;
             padding-left: 16px;
         }
+        .user-controls {
+            display: flex;
+            align-items: center;
+        }
+        .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
     </style>
     <!-- Include marked.js for Markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- Include highlight.js for code syntax highlighting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css">
     <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/highlight.min.js"></script>
+    <!-- Include authentication check -->
+    <script src="auth/auth-check.js"></script>
 </head>
 <body>
     <header>
         <div class="logo">LMS Documentation</div>
-        <a href="index.html">Back to Index</a>
+        <div class="user-controls">
+            <span id="username">User: admin</span>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
     </header>
 
     <div class="navigation">
@@ -182,6 +203,14 @@
                         </div>
                     `;
                 });
+        }
+        
+        function logout() {
+            // Clear authentication
+            sessionStorage.removeItem('lmsDocsAuth');
+            
+            // Redirect to login page
+            window.location.href = 'auth/login.html';
         }
     </script>
 </body>
