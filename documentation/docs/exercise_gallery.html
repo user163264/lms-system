@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMS Exercise Types Index</title>
+    <title>LMS Exercise Types Gallery</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -124,9 +124,24 @@
         .links a:hover {
             background-color: #2980b9;
         }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            background-color: #e0f7fa;
+            color: #00838f;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #b2ebf2;
+        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-button">← Back to Documentation Home</a>
+    
     <header>
         <h1>LMS Exercise Types</h1>
         <p>A comprehensive showcase of all exercise types available in our Learning Management System</p>
@@ -421,13 +436,15 @@
         <p>In the backend, each exercise type has a corresponding schema definition in <code>backend/app/schemas.py</code>, and the database uses a flexible JSON-based approach to store exercise-specific data.</p>
     </section>
 
+    <a href="index.html" class="back-button">← Back to Documentation Home</a>
+
     <footer>
-        <p>LMS Exercise Types Index &copy; 2024 | Learning Management System Documentation</p>
-        <div class="links">
-            <a href="/documentation/exercise_types.md">Exercise Types Documentation</a>
-            <a href="/documentation/exercise_grading_status.md">Grading Status</a>
-            <a href="/documentation/backend_frontend_alignment.md">Backend-Frontend Alignment</a>
-        </div>
+        <p>LMS Exercise Types Gallery | Last updated: <span id="last-updated"></span></p>
     </footer>
+
+    <script>
+        // Set last updated date
+        document.getElementById('last-updated').textContent = new Date().toLocaleDateString();
+    </script>
 </body>
 </html> 
