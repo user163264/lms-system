@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS System Configuration Variables</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .category {
+            padding-top: 40px;
+            margin-top: 30px;
+            border-top: 1px solid #eaeaea;
+        }
+        .category:first-of-type {
+            border-top: none;
+            margin-top: 0;
+        }
+        code {
+            background-color: #f7f7f7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 0.9em;
+        }
+        .deprecated {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .required {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .note {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .search {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LMS System Configuration Variables</h1>
+        <input type="text" id="searchInput" class="search" placeholder="Search variables...">
+    </div>
+    
+    <p>This page documents all the configurable variables in the LMS system. These variables can be set through environment variables, the <code>.env</code> file, or directly in the configuration files.</p>
+    
+    <div class="category" id="ports-section">
+        <h2>Port Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable Name</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                    <th>Where to Configure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>LMS_API_PORT</code></td>
+                    <td>8000</td>
+                    <td>The port on which the backend API server runs</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_API_HOST</code></td>
+                    <td>0.0.0.0</td>
+                    <td>The host interface on which the backend API server listens</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_FRONTEND_PORT</code></td>
+                    <td>3000</td>
+                    <td>The port on which the frontend Next.js server runs</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_FRONTEND_HOST</code></td>
+                    <td>localhost</td>
+                    <td>The host interface on which the frontend server listens</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_DB_PORT</code></td>
+                    <td>5432</td>
+                    <td>The port on which PostgreSQL database server runs</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_DB_HOST</code></td>
+                    <td>localhost</td>
+                    <td>The host on which PostgreSQL database server runs</td>
+                    <td>.env, environment variable</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category" id="database-section">
+        <h2>Database Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable Name</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                    <th>Where to Configure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>LMS_DB_NAME</code></td>
+                    <td>lms_db</td>
+                    <td>PostgreSQL database name</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_DB_USER</code></td>
+                    <td>postgres</td>
+                    <td>PostgreSQL database user</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_DB_PASSWORD</code></td>
+                    <td><span class="note">No default</span></td>
+                    <td>PostgreSQL database password <span class="required">*Required</span></td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_DB_POOL_SIZE</code></td>
+                    <td>5</td>
+                    <td>Maximum number of database connections in pool</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_DB_TIMEOUT</code></td>
+                    <td>30</td>
+                    <td>Database connection timeout in seconds</td>
+                    <td>.env, environment variable</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category" id="cors-section">
+        <h2>CORS Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable Name</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                    <th>Where to Configure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>LMS_CORS_ORIGINS</code></td>
+                    <td>http://localhost:3000</td>
+                    <td>Comma-separated list of allowed origins for CORS</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_CORS_METHODS</code></td>
+                    <td>GET,POST,PUT,DELETE</td>
+                    <td>Allowed HTTP methods for CORS requests</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_CORS_HEADERS</code></td>
+                    <td>Content-Type,Authorization</td>
+                    <td>Allowed HTTP headers for CORS requests</td>
+                    <td>.env, environment variable</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category" id="auth-section">
+        <h2>Authentication Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable Name</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                    <th>Where to Configure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>LMS_SECRET_KEY</code></td>
+                    <td><span class="note">No default</span></td>
+                    <td>Secret key for JWT token generation <span class="required">*Required</span></td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_JWT_ALGORITHM</code></td>
+                    <td>HS256</td>
+                    <td>Algorithm used for JWT token encoding</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_ACCESS_TOKEN_EXPIRE_MINUTES</code></td>
+                    <td>60</td>
+                    <td>JWT access token expiration time in minutes</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_REFRESH_TOKEN_EXPIRE_DAYS</code></td>
+                    <td>7</td>
+                    <td>JWT refresh token expiration time in days</td>
+                    <td>.env, environment variable</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category" id="paths-section">
+        <h2>Path Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable Name</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                    <th>Where to Configure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>LMS_STATIC_DIR</code></td>
+                    <td>/app/static</td>
+                    <td>Directory for static files</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_MEDIA_DIR</code></td>
+                    <td>/app/media</td>
+                    <td>Directory for user-uploaded media files</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_LOG_DIR</code></td>
+                    <td>/app/logs</td>
+                    <td>Directory for application logs</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_TEMP_DIR</code></td>
+                    <td>/app/tmp</td>
+                    <td>Directory for temporary files</td>
+                    <td>.env, environment variable</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category" id="logging-section">
+        <h2>Logging Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable Name</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                    <th>Where to Configure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>LMS_LOG_LEVEL</code></td>
+                    <td>INFO</td>
+                    <td>Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_LOG_FORMAT</code></td>
+                    <td>json</td>
+                    <td>Log format (json, text)</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_LOG_RETENTION_DAYS</code></td>
+                    <td>30</td>
+                    <td>Number of days to retain log files</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_ACCESS_LOG</code></td>
+                    <td>true</td>
+                    <td>Whether to log API access (true, false)</td>
+                    <td>.env, environment variable</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category" id="frontend-section">
+        <h2>Frontend Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable Name</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                    <th>Where to Configure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>NEXT_PUBLIC_API_URL</code></td>
+                    <td>http://localhost:8000</td>
+                    <td>URL of the backend API as seen from the browser</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>NEXT_PUBLIC_SITE_NAME</code></td>
+                    <td>LMS System</td>
+                    <td>Name of the site displayed in UI</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>NEXT_PUBLIC_SUPPORT_EMAIL</code></td>
+                    <td>support@example.com</td>
+                    <td>Support email displayed in UI</td>
+                    <td>.env, environment variable</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category" id="exercise-section">
+        <h2>Exercise Engine Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable Name</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                    <th>Where to Configure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>LMS_MAX_SUBMISSION_SIZE</code></td>
+                    <td>10485760</td>
+                    <td>Maximum submission size in bytes (10MB)</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_EVALUATION_TIMEOUT</code></td>
+                    <td>30</td>
+                    <td>Maximum time in seconds for exercise evaluation</td>
+                    <td>.env, environment variable</td>
+                </tr>
+                <tr>
+                    <td><code>LMS_MAX_ATTEMPTS</code></td>
+                    <td>3</td>
+                    <td>Maximum number of attempts for exercises</td>
+                    <td>.env, environment variable</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Show/hide category headers based on visible rows
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(category => {
+                const visibleRows = category.querySelectorAll('tbody tr:not([style="display: none;"])').length;
+                if (visibleRows === 0) {
+                    category.style.display = 'none';
+                } else {
+                    category.style.display = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
