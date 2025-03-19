@@ -1,0 +1,17 @@
+[Unit]
+Description=LMS Documentation Nginx Server
+After=network.target
+
+[Service]
+Type=forking
+User=root
+ExecStart=/usr/sbin/nginx -c /home/ubuntu/lms/nginx/docs_standalone.conf
+ExecReload=/usr/sbin/nginx -s reload -c /home/ubuntu/lms/nginx/docs_standalone.conf
+ExecStop=/usr/sbin/nginx -s stop
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target 
