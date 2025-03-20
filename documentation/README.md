@@ -2,6 +2,12 @@
 
 This directory contains comprehensive documentation for the Learning Management System (LMS).
 
+## Server Information
+
+- **Public IP Address**: 13.42.249.90
+- **Hostname**: lms-spotvogel
+- **Environment**: Production
+
 ## Documentation Sections
 
 ### Setup & Installation
@@ -9,6 +15,7 @@ This directory contains comprehensive documentation for the Learning Management 
 - [Backend Installation](setup/backend_installation.md)
 - [Frontend Setup](setup/frontend_setup.md)
 - [Production Deployment](setup/production_deployment.md)
+- [Backup Procedures](setup/backup_procedures.md)
 
 ### Development Guides
 - [Coding Workflow](development/coding_workflow.md)
@@ -31,6 +38,11 @@ This directory contains comprehensive documentation for the Learning Management 
 - [Exercises & Submissions](api/exercises_submissions.md)
 - [Users & Profiles](api/users_profiles.md)
 
+### Configuration
+- [Port Configuration](configuration/port_configuration.md)
+- [Nginx Configuration](configuration/nginx_configuration.md)
+- [Environment Variables](configuration/environment_variables.md)
+
 ### Troubleshooting
 - [Common Issues](troubleshooting/common_issues.md)
 - [Hydration Error Solutions](troubleshooting/hydration_error_solution.md)
@@ -48,11 +60,14 @@ This directory contains comprehensive documentation for the Learning Management 
 
 ## Recent Documentation Updates
 
+- Added server IP information to documentation
+- Created backup procedures documentation
+- Added Nginx configuration documentation
+- Fixed incorrectly dated troubleshooting file
+- Updated port configuration implementation to match documented standards
 - Added comprehensive logging system documentation
 - Consolidated database documentation into a single section
 - Reorganized exercise type documentation
-- Created troubleshooting guides for common issues
-- Added production deployment and log aggregation guides
 
 ## Documentation Standards
 
