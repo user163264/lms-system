@@ -30,6 +30,41 @@ echo "Setting up directory structure for /docs/ URL prefix..."
 TEMP_DIR="/home/ubuntu/lms-docs-public"
 mkdir -p $TEMP_DIR/docs
 
+# Create refresh script
+echo "Creating documentation refresh script..."
+cat > "$TEMP_DIR/refresh_docs.sh" << 'EOF'
+#!/bin/bash
+
+# Script to refresh the documentation from the repository
+LMS_ROOT="/home/ubuntu/lms"
+DOCS_DIR="/home/ubuntu/lms-docs-public"
+
+echo "Refreshing documentation..."
+mkdir -p $DOCS_DIR/docs
+
+# Copy documentation files
+cp -r $LMS_ROOT/documentation/* $DOCS_DIR/docs/
+
+# Create redirect index.html for root
+cat > $DOCS_DIR/index.html << 'INDEXEOF'
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="0; url=/docs/index.html">
+    <title>LMS Documentation</title>
+</head>
+<body>
+    <p>Redirecting to <a href="/docs/index.html">documentation</a>...</p>
+</body>
+</html>
+INDEXEOF
+
+echo "Documentation refreshed at $(date)"
+EOF
+
+# Make refresh script executable
+chmod +x "$TEMP_DIR/refresh_docs.sh"
+
 # Copy the documentation (instead of symlink to ensure permissions)
 echo "Copying documentation to public directory..."
 cp -r "$LMS_ROOT/documentation/"* $TEMP_DIR/docs/
@@ -40,11 +75,11 @@ cat > $TEMP_DIR/index.html << EOF
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=/docs/auth/login.html">
+    <meta http-equiv="refresh" content="0; url=/docs/index.html">
     <title>LMS Documentation</title>
 </head>
 <body>
-    <p>Redirecting to <a href="/docs/auth/login.html">documentation</a>...</p>
+    <p>Redirecting to <a href="/docs/index.html">documentation</a>...</p>
 </body>
 </html>
 EOF
@@ -60,6 +95,7 @@ After=network.target
 Type=simple
 User=ubuntu
 WorkingDirectory=$TEMP_DIR
+ExecStartPre=$TEMP_DIR/refresh_docs.sh
 ExecStart=/usr/bin/python3 -m http.server 8000
 Restart=on-failure
 RestartSec=10
@@ -99,8 +135,10 @@ echo "  - sudo systemctl start simple-docs-server.service    # Start the service
 echo "  - sudo systemctl stop simple-docs-server.service     # Stop the service"
 echo "  - sudo systemctl restart simple-docs-server.service  # Restart the service"
 echo "  - sudo systemctl status simple-docs-server.service   # Check service status"
+echo "  - sudo systemctl restart simple-docs-server.service  # Refresh documentation"
 echo ""
 echo "The documentation is available at:"
 PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
 echo "  http://$PUBLIC_IP:8000/"
-echo "  http://$PUBLIC_IP:8000/docs/auth/login.html" 
+echo "  http://$PUBLIC_IP:8000/docs/index.html"
+echo "  http://$PUBLIC_IP:8000/docs/exercise_gallery.html" 

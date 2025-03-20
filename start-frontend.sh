@@ -18,8 +18,8 @@ if [ -f ../.env ]; then
 fi
 
 # Get host and port from environment variables or use defaults
-HOST=${LMS_FRONTEND_HOST:-localhost}
-PORT=${LMS_FRONTEND_PORT:-3000}
+HOST=${LMS_FRONTEND_HOST:-0.0.0.0}
+PORT=${LMS_FRONTEND_PORT:-3002}
 
 # Check if the port is available
 check_port() {
@@ -63,5 +63,5 @@ if [ "$AVAILABLE_PORT" != "$PORT" ]; then
 fi
 
 echo "Starting LMS frontend on $HOST:$AVAILABLE_PORT"
-export NODE_ENV=production
-npm run dev -- -p $AVAILABLE_PORT 
+export NODE_ENV=development
+npm run dev -- -p $AVAILABLE_PORT --hostname $HOST 

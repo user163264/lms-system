@@ -1,0 +1,1 @@
+export default function TailwindTestPage() { return ( <div className="p-8 bg-blue-100 min-h-screen"><h1 className="text-2xl font-bold text-blue-700">Tailwind CSS Test</h1><p className="mt-4 text-gray-700">If you can see this styled with blue background and proper typography, Tailwind CSS is working!</p></div> ); }

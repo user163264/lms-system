@@ -5,7 +5,8 @@ After=network.target
 [Service]
 Type=simple
 User=ubuntu
-WorkingDirectory=/home/ubuntu/lms/documentation
+WorkingDirectory=/home/ubuntu/lms-docs-public
+ExecStartPre=/home/ubuntu/lms-docs-public/refresh_docs.sh
 ExecStart=/usr/bin/python3 -m http.server 8000
 Restart=on-failure
 RestartSec=10
@@ -13,4 +14,4 @@ StandardOutput=journal
 StandardError=journal
 
 [Install]
-WantedBy=multi-user.target 
+WantedBy=multi-user.target
